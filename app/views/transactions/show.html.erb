@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Asset:</strong>
+  <%= @transaction.asset %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @transaction.quantity %>
+</p>
+
+<p>
+  <strong>Unit price paid:</strong>
+  <%= @transaction.unit_price_paid %>
+</p>
+
+<p>
+  <strong>Last price:</strong>
+  <%= @transaction.last_price %>
+</p>
+
+<p>
+  <strong>Total paid:</strong>
+  <%= @transaction.total_paid %>
+</p>
+
+<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<%= link_to 'Back', transactions_path %>
