@@ -1,25 +1,5 @@
 class TransactionsController < ApplicationController
-  before_action :set_transaction, only: [:show, :edit, :update, :destroy]
-
-  # GET /transactions
-  # GET /transactions.json
-  def index
-    @transactions = Transaction.all
-  end
-
-  # GET /transactions/1
-  # GET /transactions/1.json
-  def show
-  end
-
-  # GET /transactions/new
-  def new
-    @transaction = Transaction.new
-  end
-
-  # GET /transactions/1/edit
-  def edit
-  end
+  before_action :set_transaction, only: [:update, :destroy]
 
   # POST /transactions
   # POST /transactions.json
@@ -28,7 +8,7 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.save
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
+        format.html { redirect_to @transaction.portfolio, notice: 'Transação Criada' }
         format.json { render :show, status: :created, location: @transaction }
       else
         format.html { render :new }
@@ -69,6 +49,7 @@ class TransactionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def transaction_params
-      params.require(:transaction).permit(:asset, :quantity, :unit_price_paid, :last_price, :total_paid)
+      params.require(:transaction).permit(:asset, :quantity, :unit_price_paid,
+                                          :last_price, :total_paid, :portfolio_id)
     end
 end

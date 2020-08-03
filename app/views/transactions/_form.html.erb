@@ -1,42 +1,46 @@
-<%= form_with(model: transaction, local: true) do |form| %>
-  <% if transaction.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+<div class="card mb-3" style="max-width: 100%;">
+  <div class="row no-gutters">
+    <div class="col-12">
+      <div class="card-body">
+        <h5 class="card-title">Nova Transação</h5>
+        <%= form_with(model: transaction, local: true) do |form| %>
+          <% if transaction.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
 
-      <ul>
-      <% transaction.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+            <ul>
+              <% transaction.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
+
+          <div class="field">
+            <%= form.label :asset, 'Ativo' %>
+            <%= form.text_field :asset %>
+
+            <%= form.label :quantity, 'Quantidade' %>
+            <%= form.number_field :quantity %>
+
+            <%= form.label :unit_price_paid, 'Preço' %>
+            <%= form.number_field :unit_price_paid %>
+
+            <%= form.label :total_paid, 'Total' %>
+            <%= form.number_field :total_paid %>
+
+            <%= form.hidden_field :portfolio_id, :value => @portfolio.id %>
+          </div>
+          <div class="row">
+            <div class="col-2 offset-10">
+
+              <div class="actions">
+                <%= form.submit 'Criar Transação', class:"btn btn-dark btn-block" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :asset %>
-    <%= form.text_field :asset %>
   </div>
-
-  <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
-  </div>
-
-  <div class="field">
-    <%= form.label :unit_price_paid %>
-    <%= form.number_field :unit_price_paid %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_price %>
-    <%= form.number_field :last_price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :total_paid %>
-    <%= form.number_field :total_paid %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

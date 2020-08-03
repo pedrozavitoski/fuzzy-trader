@@ -10,6 +10,8 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/1
   # GET /portfolios/1.json
   def show
+    @transaction = Transaction.new
+    @transactions = @portfolio.transactions
   end
 
   # GET /portfolios/new
