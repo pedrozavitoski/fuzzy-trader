@@ -1,27 +1,31 @@
-<%= form_with(model: portfolio, local: true) do |form| %>
-  <% if portfolio.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(portfolio.errors.count, "error") %> prohibited this portfolio from being saved:</h2>
+<div class="" style="margin: 2rem 0">
+  <%= form_with(model: portfolio, local: true) do |form| %>
+    <% if portfolio.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(portfolio.errors.count, "error") %> prohibited this portfolio from being saved:</h2>
 
-      <ul>
-      <% portfolio.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% portfolio.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name, "Nome da carteira" %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :initial_amount, "Aporte Inicial" %>
+      <%= form.number_field :initial_amount %>
+    </div>
+
+      <%= form.hidden_field :user_id, :value => current_user.id %>
+
+    <div class="actions">
+      <%= form.submit "Salvar", class:"btn btn-dark" %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :initial_amount %>
-    <%= form.number_field :initial_amount %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
