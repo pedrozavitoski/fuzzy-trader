@@ -23,6 +23,15 @@ class PortfoliosController < ApplicationController
     end
   end
 
+  def get_crypto_data
+    respond_to do |format|
+      @crypto = params[:crypto_name]
+      response = RestClient.get('https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency='+@crypto+'&to_currency=USD&apikey=FJB91XTDD6DUEDP8')
+      @data = JSON.parse(response)
+      format.js
+    end
+  end
+
   # GET /portfolios/new
   def new
     @portfolio = Portfolio.new

@@ -1,6 +1,6 @@
 <h5 class="card-title"><%= @ticker %>: $<%=  @data['Global Quote']['05. price'] %></h5>
 
-<label>Abertura:</label> $<%=  @data['Global Quote']['02. open'] %>
-<label>Preço Máximo:</label> $<%= @data['Global Quote']['03. high'] %>
-<label>Preço Mínimo:</label> $<%= @data['Global Quote']['04. low'] %>
+<label>Abertura:</label> $<%=  @data['Global Quote']['02. open'] %><br>
+<label>Preço Máximo:</label> $<%= @data['Global Quote']['03. high'] %><br>
+<label>Preço Mínimo:</label> $<%= @data['Global Quote']['04. low'] %><br>
 <label>Mudança Percentual:</label> <%= @data['Global Quote']['10. change percent'] %>

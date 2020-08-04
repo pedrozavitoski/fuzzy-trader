@@ -23,6 +23,23 @@
     <% end %>
   </div>
 
+
+  <h3>Criptomoedas</h3>
+  <div class="card-group">
+    <% $cryptos.each do |crypto| %>
+      <div class="card">
+        <div class="card-body">
+          <div class="stock-price" id="<%= crypto %>" data-url="<%= url_for(controller: 'portfolios', action: 'get_crypto_data', crypto_name: crypto) %>">
+            <h5 class="card-title"><%= crypto %></h5>
+
+          </div>
+          <p class="card-text"></p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
   <table class="table">
     <thead>
       <tr>

@@ -1,0 +1,8 @@
+var targetId = "<%= @crypto %>";
+
+function replaceCryptoData (innerHTML) {
+  const price = document.getElementById(targetId);
+  price.innerHTML = innerHTML;
+}
+
+replaceCryptoData("<%= j render :partial => 'portfolios/crypto_data'%>");
