@@ -8,6 +8,7 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.save
+        @transaction.portfolio.update_total
         format.html { redirect_to @transaction.portfolio, notice: 'Transação Criada' }
         format.json { render :show, status: :created, location: @transaction }
       else
