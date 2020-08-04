@@ -14,6 +14,15 @@ class PortfoliosController < ApplicationController
     @transactions = @portfolio.transactions
   end
 
+  def get_stock_quote
+    respond_to do |format|
+      @ticker = params[:ticker]
+      response = RestClient.get('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol='+@ticker+'&apikey=FJB91XTDD6DUEDP8')
+      @data = JSON.parse(response)
+      format.js
+    end
+  end
+
   # GET /portfolios/new
   def new
     @portfolio = Portfolio.new

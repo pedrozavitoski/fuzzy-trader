@@ -1,0 +1,8 @@
+var targetId = "<%= @ticker %>";
+
+function replaceStockPrice (innerHTML) {
+  const price = document.getElementById(targetId);
+  price.innerHTML = innerHTML;
+}
+
+replaceStockPrice("<%= j render :partial => 'portfolios/stock_quote'%>");

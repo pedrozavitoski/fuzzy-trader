@@ -7,9 +7,21 @@
 
   <%= render 'transactions/form', transaction: @transaction %>
 
-  <% $stocks.each do |stock| %>
-    <%= stock %> 
-  <% end %>
+  <h3>Ações</h3>
+  <div class="card-group">
+    <% $stocks.each do |stock| %>
+      <div class="card">
+        <div class="card-body">
+          <div class="stock-price" id="<%= stock %>" data-url="<%= url_for(controller: 'portfolios', action: 'get_stock_quote', ticker: stock) %>">
+            <h5 class="card-title"><%= stock %></h5>
+
+          </div>
+          <p class="card-text"></p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
   <table class="table">
     <thead>
@@ -42,3 +54,11 @@
   <%= link_to 'Editar', edit_portfolio_path(@portfolio) %> |
   <%= link_to 'Voltar', portfolios_path %>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.stock-price').each(function(){
+    $.ajax($(this).data('url'));
+  });
+});
+</script>
