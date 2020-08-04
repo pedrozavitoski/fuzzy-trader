@@ -17,3 +17,18 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+function fillTransactionForm(name, price) {
+  document.getElementById("transaction_asset").value=name;
+  document.getElementById("transaction_unit_price_paid").value=price;
+};
+
+function calculateTotal() {
+        var price = document.getElementById('transaction_unit_price_paid').value;
+        var quantity = document.getElementById('transaction_quantity').value;
+        var result = document.getElementById('transaction_total_paid');
+        var myResult = price * quantity;
+          result.value = myResult;
+
+    }

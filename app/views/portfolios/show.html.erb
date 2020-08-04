@@ -1,5 +1,6 @@
 <div class="container">
   <h2><%= @portfolio.name %></h2>
+  <h3>Total da Carteira: <%= %></h3>
   <p>
     <strong>Aporte Inicial:</strong>
     $<%= @portfolio.initial_amount %>
@@ -16,8 +17,6 @@
             <h5 class="card-title"><%= stock %></h5>
 
           </div>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
     <% end %>
@@ -33,8 +32,6 @@
             <h5 class="card-title"><%= crypto %></h5>
 
           </div>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
     <% end %>

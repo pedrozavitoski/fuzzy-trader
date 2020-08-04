@@ -1,4 +1,6 @@
 <h5 class="card-title"><%= @crypto %>: $<%=  @data['Realtime Currency Exchange Rate']['5. Exchange Rate'] %></h5>
 
 <label>Bid Price:</label> $<%=  @data['Realtime Currency Exchange Rate']['8. Bid Price'] %><br>
-<label>Ask Price:</label> $<%= @data['Realtime Currency Exchange Rate']['9. Ask Price'] %>
+<label>Ask Price:</label> $<%= @data['Realtime Currency Exchange Rate']['9. Ask Price'] %><br>
+
+<button onClick="fillTransactionForm('<%= @crypto %>', '<%=  @data['Realtime Currency Exchange Rate']['5. Exchange Rate'] %>')" class="btn btn-dark">Comprar</button>

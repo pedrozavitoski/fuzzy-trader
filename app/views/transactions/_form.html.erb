@@ -21,13 +21,13 @@
             <%= form.text_field :asset %>
 
             <%= form.label :quantity, 'Quantidade' %>
-            <%= form.number_field :quantity %>
+            <%= form.number_field :quantity , required: true, oninput:"calculateTotal();" %>
 
             <%= form.label :unit_price_paid, 'Preço' %>
-            <%= form.number_field :unit_price_paid %>
+            <%= form.number_field :unit_price_paid, step: "any", required: true, oninput:"calculateTotal();" %>
 
             <%= form.label :total_paid, 'Total' %>
-            <%= form.number_field :total_paid %>
+            <%= form.number_field :total_paid, step: "any" , required: true %>
 
             <%= form.hidden_field :portfolio_id, :value => @portfolio.id %>
           </div>

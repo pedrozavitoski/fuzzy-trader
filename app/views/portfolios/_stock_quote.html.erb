@@ -3,4 +3,6 @@
 <label>Abertura:</label> $<%=  @data['Global Quote']['02. open'] %><br>
 <label>Preço Máximo:</label> $<%= @data['Global Quote']['03. high'] %><br>
 <label>Preço Mínimo:</label> $<%= @data['Global Quote']['04. low'] %><br>
-<label>Mudança Percentual:</label> <%= @data['Global Quote']['10. change percent'] %>
+<label>Mudança Percentual:</label> <%= @data['Global Quote']['10. change percent'] %><br>
+
+<button onClick="fillTransactionForm('<%= @ticker %>', '<%=  @data['Global Quote']['05. price'] %>')" class="btn btn-dark">Comprar</button>
