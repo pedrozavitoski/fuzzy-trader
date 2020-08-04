@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-  before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
+  before_action :set_portfolio, only: [:show, :edit, :update, :destroy, :update_all_prices]
 
   # GET /portfolios
   # GET /portfolios.json
@@ -30,6 +30,15 @@ class PortfoliosController < ApplicationController
       @data = JSON.parse(response)
       format.js
     end
+  end
+
+  def update_all_prices
+    @transactions = @portfolio.transactions
+    @transactions.each do |transaction|
+      transaction.update_last_price
+    end
+    @portfolio.update_total
+    redirect_to @portfolio
   end
 
   # GET /portfolios/new

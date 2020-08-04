@@ -8,6 +8,7 @@
 
   <%= render 'transactions/form', transaction: @transaction %>
 
+<div style="margin-top: 2rem;">
   <h3>Ações</h3>
   <div class="card-group">
     <% $stocks.each do |stock| %>
@@ -21,7 +22,9 @@
       </div>
     <% end %>
   </div>
+</div>
 
+<div style="margin-top: 2rem;">
 
   <h3>Criptomoedas</h3>
   <div class="card-group">
@@ -36,6 +39,12 @@
       </div>
     <% end %>
   </div>
+</div>
+
+<div style="margin-top: 2rem;">
+
+  <h3>Todas as Operações</h3>
+  <%= button_to 'Atualizar todos os preços', {:controller => "portfolios", :action => "update_all_prices", :id => @portfolio.id} , :method=>:post  %>
 
   <table class="table">
     <thead>
@@ -64,6 +73,8 @@
       <% end %>
     </tbody>
   </table>
+
+</div>
 
   <%= link_to 'Editar', edit_portfolio_path(@portfolio) %> |
   <%= link_to 'Voltar', portfolios_path %>
